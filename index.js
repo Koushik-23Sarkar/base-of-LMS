@@ -8,6 +8,7 @@ import mongoSanitize from "express-mongo-sanitize";
 import hpp from "hpp";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import healthRoute from "./routes/health.routes.js";
 
 dotenv.config();
 
@@ -66,6 +67,7 @@ app.use(
 );
 
 // API Routes
+app.use("/health",healthRoute);
 
 // 404 should be always at buttom
 app.use((req, res) => {
